@@ -1,0 +1,42 @@
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+        boot:
+          autoconfigure: ERROR
+spring:
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://application-service-db/application-db
+    username: postgres
+    password: dev@1234
+    driverClassName: org.postgresql.Driver
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 327676401901-e0icc8gpl7uo4g61460olh9l2pbmrkv1.apps.googleusercontent.com
+            client-secret: DJbpOnv3OJbUZ95xePi1moBV
+            redirectUri: http://localhost:3000/
+            scope:
+              - email
+              - profile
+app:
+  auth:
+    tokenSecret: demonstration
+    tokenExpirationMsec: 864000000
+  oauth2:
+    authorizedRedirectUris:
+      - http://localhost:8080/
+      - http://localhost:3000
+liquibase:
+  change-log: classpath:/db.changelog/db.changelog-master.yaml
+server:
+  port: 8080

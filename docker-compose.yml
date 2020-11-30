@@ -1,0 +1,31 @@
+version: "3"
+services: 
+    application-service-db:
+        image: postgres
+        container_name: "application-service-db"
+        ports:
+            - "5432:5432"
+        environment: 
+            POSTGRES_USER: postgres 
+            POSTGRES_PASSWORD: "dev@1234"
+            POSTGRES_DB: "application-db"
+        volumes:
+            - ./pgData:/var/lib/psotgresql/data
+    application-service:
+        container_name: "application-service"
+        build: ./backend/
+        ports: 
+            - "8080:8080"
+        depends_on: 
+            - application-service-db
+    application-web:
+        container_name: "application-web"
+        build: ./web-app/
+        ports: 
+            - "3000:3000"
+        depends_on: 
+            - application-service-db
+            - application-service
+        environment: 
+            - NODE_ENV=development
+            - "REACT_APP_BASE_URL=http://localhost:8080"

@@ -1,0 +1,91 @@
+databaseChangeLog:
+- changeSet:
+    id: 1606685779632-1
+    author: yago
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: User_pkey
+            name: Id
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: name
+            type: VARCHAR(200)
+        - column:
+            constraints:
+              nullable: false
+            name: email
+            type: VARCHAR(200)
+        tableName: users
+- changeSet:
+    id: 1606685779632-2
+    author: yago
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+            name: Id
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: codigoemenda
+            type: VARCHAR(30)
+        - column:
+            constraints:
+              nullable: false
+            name: ano
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: autor
+            type: VARCHAR(100)
+        - column:
+            name: nomeautor
+            type: VARCHAR(100)
+        - column:
+            name: numeroemenda
+            type: VARCHAR(10)
+        - column:
+            name: localidadedogasto
+            type: VARCHAR(50)
+        - column:
+            name: funcao
+            type: VARCHAR(100)
+        - column:
+            name: subfuncao
+            type: VARCHAR(200)
+        - column:
+            name: valorempenhado
+            type: VARCHAR(50)
+        - column:
+            name: valorliquidado
+            type: VARCHAR(50)
+        - column:
+            name: valorpago
+            type: VARCHAR(50)
+        - column:
+            name: valorrestoinscrito
+            type: VARCHAR(50)
+        - column:
+            name: valorrestocancelado
+            type: VARCHAR(50)
+        - column:
+            name: valorrestopago
+            type: VARCHAR(50)
+        - column:
+            name: valorrestoapagar
+            type: VARCHAR(50)
+        tableName: emenda
+
