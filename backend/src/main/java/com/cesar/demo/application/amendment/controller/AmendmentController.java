@@ -31,7 +31,7 @@ public class AmendmentController {
             Request request = new Request.Builder()
                     .url("http://www.portaltransparencia.gov.br/api-de-dados/emendas?ano=2020&pagina=1")
                     .addHeader("Accept", "application/json")  // add request headers
-                    .addHeader("chave-api-dados", "55f4ffb9b18eef9aff06a2ec76ecacf5")
+                    .addHeader("chave-api-dados", "") //key
                     .build();
 
             try (Response response = httpClient.newCall(request).execute()) {
